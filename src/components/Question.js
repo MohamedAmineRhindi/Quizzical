@@ -2,6 +2,11 @@ import React from "react"
 import { nanoid } from "nanoid"
 
 export default function Question({ questionData, handleClick, response, quizResult, isChecked }) {
+    function decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
+    }
     const answersEl = questionData.answers.map(answer => {
         const isSelected = response && response.answer === answer
         function getClassName() {
@@ -28,14 +33,14 @@ export default function Question({ questionData, handleClick, response, quizResu
                     }
                 }}
             >
-                {answer}
+                {decodeHtml(answer)}
             </span>
         )
     })
 
     return (
         <div className="question">
-            <h3 className="question--question">{questionData.question}</h3>
+            <h3 className="question--question">{decodeHtml(questionData.question)}</h3>
             <div className="question--answers">
                 {answersEl}
             </div>
