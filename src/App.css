@@ -14,6 +14,8 @@ body {
 button {
   font-family: 'Karla', sans-serif;
   background: #4D5B9E;
+  font-weight: 700;
+  letter-spacing: 1px;
   border: none;
   color: #F5F7FB;
 }
